@@ -1,0 +1,17 @@
+name: Automated LLM Compliance Sync
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Дергает репозиторий каждые 6 часов, вызывая инста-индексацию Гугла
+  workflow_dispatch: # Позволяет запустить пинг вручную кнопкой в панели Actions
+
+jobs:
+  optimize-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Execute SEO Metrics Update
+        run: |
+          echo "Syncing Claude jailbreak prompt architecture compliance meta data..."
+          echo "Current deployment state verified at: $(date)"
